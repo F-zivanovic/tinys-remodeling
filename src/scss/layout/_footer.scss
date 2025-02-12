@@ -1,0 +1,163 @@
+@use "../abstract/index" as *;
+
+.footer {
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  position: relative;
+  margin-top: 4rem;
+  padding: 4rem 0;
+  background: linear-gradient(180deg, #000000 0%, #aa0e00 661.48%);
+
+  @include rwd(992) {
+    background: $black-color;
+    border-top: 2px solid $primary-color;
+    border-radius: 0;
+    padding-bottom: 0;
+    padding-top: 2.5rem;
+    margin-top: 10px;
+  }
+
+  &__wrapper {
+    @include flex(space-between);
+    @include rwd(992) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer__social {
+      display: none;
+      margin-top: 48px;
+
+      @include rwd(992) {
+        display: block;
+      }
+
+      a {
+        box-shadow: 0px 0px 22.18px 0px rgba(255, 255, 255, 0.2);
+        font-size: 20px;
+
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  &__item {
+    &--right {
+      text-align: right;
+
+      @include rwd(992) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__logo {
+    &-desktop {
+      width: 250px;
+      height: 65px;
+
+      @include rwd(992) {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      display: none;
+      width: 100px;
+      margin: auto;
+
+      @include rwd(992) {
+        display: block;
+      }
+    }
+  }
+
+  &__p {
+    margin-top: 1.5rem;
+    font-size: 14px;
+    max-width: 350px;
+    font-weight: 300;
+
+    @include rwd(992) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    @include rwd(992) {
+      flex-direction: column;
+      margin-top: 1rem;
+    }
+
+    a {
+      @include text(14px, 500, $white-color, uppercase, center);
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  &__heading {
+    @include text(26px, 500, $white-color, none, right);
+    margin-bottom: 1.5rem;
+    max-width: 355px;
+
+    @include rwd(992) {
+      font-size: 20px;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    @include rwd(576) {
+      font-size: 1rem;
+      font-weight: 400;
+      max-width: 210px;
+    }
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__btn {
+    text-transform: uppercase;
+  }
+
+  &__copy {
+    border-top: 1px solid $white-color;
+    padding: 1rem 0;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include rwd(992) {
+      flex-direction: column;
+      align-items: center;
+      background-color: $secondary-color;
+      width: 100% !important;
+      border-top: none;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+
+  &__copyright {
+    font-size: 14px;
+
+    @include rwd(576) {
+      font-size: 10px;
+    }
+  }
+}

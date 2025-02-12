@@ -1,0 +1,14 @@
+@use "../abstract/index" as *;
+
+.social__icons {
+  @include positioning(fixed, 50%, auto, auto, 0);
+  @include flex(center, stretch, column, 1.5rem);
+  background-color: $black-color;
+  padding: 2rem 1rem;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  @include rwd(1200) {
+    display: none;
+  }
+}

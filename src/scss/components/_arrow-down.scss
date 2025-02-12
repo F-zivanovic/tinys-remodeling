@@ -1,0 +1,27 @@
+@use "../abstract/index" as *;
+
+@keyframes arrow-down {
+  0% {
+    bottom: 40px;
+  }
+
+  50% {
+    bottom: 70px;
+  }
+
+  100% {
+    bottom: 40px;
+  }
+}
+
+#arrow {
+  @include positioning(absolute, auto, auto, 40px, 50%);
+  animation: arrow-down 1.5s infinite;
+  color: $primary-color;
+  font-size: 2rem;
+  display: none;
+
+  @include rwd(992) {
+    display: block;
+  }
+}

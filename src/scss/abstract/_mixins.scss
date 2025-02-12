@@ -1,0 +1,80 @@
+@use "../abstract/variables" as *;
+
+@mixin flex($justify: flex-start, $align: stretch, $flow: row nowrap, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-flow: $flow;
+  gap: $gap;
+}
+
+@mixin positioning(
+  $position: absolute,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto,
+  $width: auto,
+  $height: auto
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  width: $width;
+  height: $height;
+
+  @if ($left == 50% and $top == 50%) {
+    transform: translate(-50%, -50%);
+  } @else if($top == 50%) {
+    transform: translateY(-50%);
+  } @else if($left == 50%) {
+    transform: translateX(-50%);
+  } @else if($right == 50%) {
+    transform: translateX(-50%);
+  }
+}
+
+@mixin text(
+  $font-size: 16px,
+  $font-weight: 400,
+  $color: $white-color,
+  $text-transform: none,
+  $text-align: left
+) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  text-transform: $text-transform;
+  text-align: $text-align;
+}
+
+@mixin rwd($pixels, $type: max) {
+  @media (#{$type}-width: #{$pixels}px) {
+    @content;
+  }
+}
+
+@mixin section-header(
+  $align: center,
+  $text-transform: capitalize,
+  $bp: 576px,
+  $font-size: 25px
+) {
+  text-align: $align;
+
+  .section-title {
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: $text-transform;
+  }
+}

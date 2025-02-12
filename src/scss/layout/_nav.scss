@@ -1,0 +1,81 @@
+@use "../abstract/index" as *;
+
+.nav {
+  @include positioning(fixed, 0, auto, auto, 0, 100%);
+  @include flex(space-between, center);
+  background: transparent;
+  padding: 1.5rem 4rem;
+  z-index: 999;
+
+  @include rwd(576) {
+    padding: 0 2rem;
+  }
+
+  &.scrolled {
+    background-color: $black-color;
+  }
+
+  &__logo {
+    @include rwd(1200) {
+      order: 2;
+    }
+    &-desktop {
+      width: 200px;
+
+      @include rwd(1200) {
+        display: none;
+      }
+    }
+
+    &-mobile {
+      display: none;
+
+      @include rwd(1200) {
+        width: 80px;
+        display: block;
+      }
+    }
+  }
+
+  &__list {
+    @include flex(flex-start, center, nowrap, 32px);
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+
+  &__link {
+    @include text(14px, 500, $white-color, uppercase);
+
+    &--btn {
+      text-align: center;
+    }
+  }
+
+  &__hamburger {
+    @include flex(space-between, stretch, column);
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    display: none;
+
+    .hamburger__line {
+      width: 100%;
+      height: 3px;
+      background-color: $white-color;
+    }
+
+    .hamburger__line--mid {
+      width: 80%;
+    }
+
+    @include rwd(1200) {
+      display: flex;
+    }
+
+    @include rwd(576) {
+      width: 30px;
+      height: 20px;
+    }
+  }
+}

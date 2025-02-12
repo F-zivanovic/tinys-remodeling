@@ -1,0 +1,25 @@
+@use "../abstract/index" as *;
+
+.container {
+  width: 80%;
+  margin: auto;
+
+  @include rwd(576) {
+    width: 90%;
+  }
+}
+
+.section-header {
+  @include section-header;
+
+  span {
+    color: $primary-color;
+  }
+}
+// TODO: Alt
+
+.nav .active,
+.mobile .active {
+  color: $primary-color !important;
+  font-weight: 600 !important;
+}
