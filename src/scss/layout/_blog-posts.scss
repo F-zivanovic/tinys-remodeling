@@ -45,6 +45,7 @@
     font-weight: 500;
     font-size: 22px;
     margin-top: 1rem;
+    display: block;
 
     @include rwd(768) {
       font-size: 15px;
