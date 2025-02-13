@@ -454,7 +454,7 @@ button {
 .form__link:not(:last-child) {
   margin-bottom: 16px;
 }
-.form__link i {
+.form__link span {
   margin-right: 10px;
 }
 .form__link:hover {
