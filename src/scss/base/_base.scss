@@ -1,0 +1,48 @@
+@use "../abstract/index" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+  line-height: 1.4;
+  color: $white-color;
+  background-color: $secondary-color;
+  font-family: $font-family;
+}
+
+a {
+  transition: 0.4s linear;
+  color: $white-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+section {
+  padding: 90px 0;
+  @include rwd(576) {
+    padding: 70px 0;
+  }
+}

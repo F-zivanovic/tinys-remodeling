@@ -1,0 +1,307 @@
+@use "../abstract/index" as *;
+
+// ==========================================================================
+// HEADER section
+// ==========================================================================
+.header-p {
+  clip-path: polygon(0 1%, 100% 0%, 100% 75%, 0 100%);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100svh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../src/img/projects/projects-main.jpg");
+
+  @include rwd(992) {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+
+  &__wrapper {
+    @include flex(center, flex-start, column);
+    height: 100%;
+
+    @include rwd(992) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    @extend %header-heading;
+
+    @include rwd(768) {
+      font-size: 37px;
+    }
+
+    @include rwd(450) {
+      font-size: 30px;
+    }
+  }
+
+  &__p {
+    @extend %header-paragraph;
+    max-width: 650px;
+
+    @include rwd(1200) {
+      width: 350px;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+
+  &__wrapper ~ div {
+    z-index: -1;
+
+    @include rwd(992) {
+      display: none;
+    }
+  }
+
+  &__triangle-one {
+    @include positioning(absolute, auto, auto, 0, -220px, 500px, 380px);
+    clip-path: polygon(49% 0, 0% 100%, 100% 100%);
+    background: rgba(255, 255, 255, 0.16);
+  }
+
+  &__triangle-two {
+    @include positioning(absolute, auto, auto, 0, 100px, 500px, 600px);
+    clip-path: polygon(49% 0, 0% 100%, 100% 100%);
+    background: rgba(0, 0, 0, 0.16);
+  }
+
+  &__triangle-three {
+    @include positioning(absolute, auto, auto, 0, 300px, 550px, 450px);
+    clip-path: polygon(74% 3%, 0% 100%, 100% 100%);
+    background: rgba(255, 21, 0, 0.16);
+  }
+}
+
+// ==========================================================================
+// PROJECTS section
+// ==========================================================================
+.projects {
+  position: relative;
+  scroll-margin-top: 100px;
+
+  @include rwd(576) {
+    scroll-margin-top: 80px;
+  }
+
+  &__header {
+    text-align: right;
+    @include rwd(992) {
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 42px;
+    margin-bottom: 20px;
+
+    @include rwd(992) {
+      font-size: 2rem;
+      max-width: 250px;
+      margin: 0 auto 20px;
+    }
+  }
+
+  &__p {
+    font-weight: 300;
+    max-width: 870px;
+    margin-left: auto;
+
+    @include rwd(992) {
+      margin: auto;
+      width: 280px;
+    }
+  }
+
+  &__wrapper {
+    @include flex(space-between, stretch, wrap);
+    row-gap: 150px;
+    margin-top: 80px;
+
+    @include rwd(1200) {
+      row-gap: 70px;
+    }
+  }
+
+  &__item {
+    flex-basis: 30%;
+
+    @include rwd(1200) {
+      flex-basis: 45%;
+    }
+    @include rwd(768) {
+      flex-basis: 100%;
+    }
+
+    &.hidden {
+      @include rwd(768) {
+        display: none;
+      }
+    }
+  }
+
+  &__name {
+    @include text(1.5rem, 500, $white-color, uppercase);
+    margin-bottom: 20px;
+
+    @include rwd(768) {
+      text-align: center;
+    }
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__imgs {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__slides {
+    transition: 0.4s linear;
+    display: flex;
+
+    img {
+      width: 100%;
+      flex-shrink: 0;
+    }
+  }
+
+  &__btn {
+    @include positioning(absolute, 50%, auto, auto, auto);
+    border-radius: 50%;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 2px solid $white-color;
+    cursor: pointer;
+    transition: 0.4s linear;
+    font-size: 13px;
+
+    &:hover {
+      color: $primary-color;
+      border-color: $primary-color;
+    }
+
+    &--right {
+      right: 10px;
+    }
+
+    &--left {
+      left: 10px;
+    }
+  }
+
+  &__labels {
+    @include flex(center, stretch, wrap, 9px);
+    margin-top: 20px;
+    @include rwd(1200) {
+      justify-content: center;
+    }
+  }
+
+  &__label {
+    text-transform: capitalize;
+    font-size: 13px;
+    border-radius: 50px;
+    padding: 10px 1rem;
+    border: 0.8px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__cta {
+    margin: 2rem auto 0;
+    display: none;
+
+    @include rwd(768) {
+      display: block;
+    }
+  }
+
+  &__color {
+    @include positioning(absolute, 45%, 0, auto, auto, 200px);
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+}
+
+// ==========================================================================
+// VISION section
+// ==========================================================================
+.vision {
+  @include flex(center, center, column, 16px);
+  position: relative;
+  margin: 90px auto;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
+    url("../../src/img/projects/projects-vision.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  text-align: center;
+  padding: 100px 0;
+
+  @include rwd(1200) {
+    margin: 70px auto;
+  }
+
+  &__heading {
+    font-weight: 600;
+    font-size: 36px;
+
+    span {
+      color: $primary-color;
+    }
+
+    @include rwd(992) {
+      font-size: 26px;
+      width: 280px;
+    }
+  }
+
+  &__p {
+    font-weight: 300;
+
+    @include rwd(992) {
+      width: 350px;
+    }
+
+    @include rwd(576) {
+      font-size: 14px;
+      max-width: 100%;
+    }
+  }
+
+  &__img {
+    opacity: 0.2;
+    width: 390px;
+    margin: 20px 0;
+
+    @include rwd(992) {
+      width: 200px;
+    }
+  }
+
+  &__brush {
+    @include positioning(absolute, auto, auto, -340px, -170px, 300px);
+    opacity: 0.2;
+
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+}
+
+.projects__icon {
+  @include positioning(absolute, 80%, 0, auto, atuo, 120px);
+  @include rwd(1200) {
+    display: none;
+  }
+}

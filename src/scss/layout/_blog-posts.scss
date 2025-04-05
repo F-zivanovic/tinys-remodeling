@@ -1,0 +1,96 @@
+@use "../abstract/index" as *;
+
+.blog-posts {
+  scroll-margin-top: 5rem;
+
+  .section-header {
+    .section-subtitle {
+      @include rwd(576) {
+        max-width: 100%;
+        font-size: 25px;
+      }
+    }
+  }
+
+  &__wrapper {
+    @include flex(space-between, stretch, wrap);
+    margin-top: 45px;
+    row-gap: 150px;
+
+    @include rwd(576) {
+      row-gap: 100px;
+    }
+  }
+
+  &__item {
+    flex-basis: 31%;
+
+    @include rwd(1200) {
+      flex-basis: 45%;
+    }
+
+    @include rwd(768) {
+      flex-basis: 100%;
+    }
+
+    // When add more than 3 blog post
+    // &.hidden {
+    //   @include rwd(768) {
+    //     display: none;
+    //   }
+    // }
+  }
+
+  &__heading {
+    font-weight: 500;
+    font-size: 22px;
+    margin-top: 1rem;
+    display: block;
+
+    @include rwd(768) {
+      font-size: 15px;
+    }
+  }
+
+  &__date {
+    margin: 1.5rem 0 16px;
+
+    i {
+      font-size: 14px;
+    }
+
+    span {
+      font-weight: 300;
+      font-size: 10px;
+      color: rgba(141, 141, 141, 1);
+    }
+  }
+
+  &__p {
+    color: rgba(197, 197, 197, 1);
+    text-align: justify;
+    line-height: 18px;
+    font-size: 11px;
+    margin-bottom: 1rem;
+  }
+
+  &__link {
+    @include text(12px, 700, $white-color, uppercase);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // When add more than 3 blog posts
+  // &__btn {
+  //   display: none;
+
+  //   @include rwd(768) {
+  //     display: block;
+  //     margin: 2rem auto 0;
+  //     width: 150px;
+  //     text-align: center;
+  //   }
+  // }
+}

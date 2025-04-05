@@ -1,0 +1,70 @@
+@use "../abstract/index" as *;
+
+.faq {
+  &__heading {
+    @include text(2rem, 600, $white-color, none, center);
+    @include rwd(992) {
+      font-size: 1.5rem;
+      max-width: 250px;
+      margin: auto;
+    }
+  }
+
+  &__wrapper {
+    @include flex(space-between, stretch, wrap, 1rem);
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: $black-color;
+    border-radius: 1rem;
+
+    @include rwd(768) {
+      padding: 1rem;
+    }
+  }
+
+  &__item {
+    flex-basis: 47%;
+    padding: 25px;
+    border-radius: 10px;
+
+    @include rwd(1200) {
+      flex-basis: 100%;
+    }
+
+    &.active {
+      background-color: $white-color;
+      color: $black-color;
+    }
+  }
+
+  &__header {
+    @include flex(space-between, center);
+    @include rwd(576p) {
+      font-size: 14px;
+    }
+
+    i {
+      font-size: 15px;
+      transition: 0.4s linear;
+
+      &.active {
+        transform: rotate(90deg);
+        color: $black-color;
+      }
+    }
+  }
+
+  &__body {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 300;
+    transition: 0.4s linear;
+
+    &.active {
+      border-top: 1px solid rgba(241, 241, 241, 1);
+      max-height: 200px;
+      padding-top: 20px;
+    }
+  }
+}

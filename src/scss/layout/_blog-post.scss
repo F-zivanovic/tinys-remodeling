@@ -1,0 +1,59 @@
+@use "../abstract/index" as *;
+
+.header-bp {
+  height: 70vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../src/img/blog/blog-posts/la-fire.webp");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: clamp(30px, 5vw, 55px);
+    margin: 0 10%;
+  }
+}
+
+.blog-post {
+  &__text {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  &__heading {
+    margin: 2rem 0;
+    font-size: 2rem;
+    text-transform: capitalize;
+
+    @include rwd(576) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__list {
+    padding-left: 3rem;
+    list-style-type: disc;
+
+    @include rwd(576) {
+      padding-left: 2rem;
+    }
+
+    &__item {
+      margin-bottom: 1rem;
+      color: white;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__cta {
+    font-weight: 700;
+    text-decoration: underline;
+    text-transform: capitalize;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+}

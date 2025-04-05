@@ -1,0 +1,331 @@
+@use "../abstract/index" as *;
+
+// ==========================================================================
+// HEADER section
+// ==========================================================================
+.header-a {
+  position: relative;
+  height: 100svh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url("../../src/img/about/about-main.jpg");
+  background-size: cover;
+  background-position: bottom;
+
+  &__wrapper {
+    @include flex(center, flex-start, column);
+    height: 100%;
+
+    @include rwd(1200) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__heading {
+    @extend %header-heading;
+    max-width: 750px;
+
+    @include rwd(992) {
+      font-size: 28px;
+      text-align: center;
+      width: 400px;
+    }
+
+    @include rwd(576) {
+      max-width: 100%;
+    }
+  }
+
+  &__p {
+    @extend %header-paragraph;
+    max-width: 720px;
+
+    @include rwd(992) {
+      text-align: center;
+      width: 350px;
+    }
+
+    @include rwd(576) {
+      max-width: 100%;
+    }
+  }
+}
+
+// ==========================================================================
+// INFO section
+// ==========================================================================
+.info {
+  @include flex(space-between, center, wrap);
+  scroll-margin-top: 100px;
+
+  @include rwd(1200) {
+    justify-content: center;
+    text-align: center;
+    row-gap: 48px;
+  }
+
+  @include rwd(576) {
+    scroll-margin-top: 50px;
+  }
+
+  &__item {
+    flex-basis: 30%;
+
+    @include rwd(1200) {
+      flex-basis: 80%;
+    }
+    @include rwd(576) {
+      flex-basis: 100%;
+    }
+
+    &.section-header {
+      text-align: left;
+
+      @include rwd(1200) {
+        text-align: center;
+      }
+
+      .section-subtitle {
+        text-transform: uppercase;
+
+        @include rwd(1200) {
+          width: 350px;
+          margin: auto;
+          margin-top: 16px;
+        }
+
+        @include rwd(400) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__p {
+    @include text(1rem, 300, $white-color);
+    text-align: left;
+    line-height: 1.8;
+
+    @include rwd(1200) {
+      text-align: center;
+    }
+
+    @include rwd(768) {
+      width: 300px;
+      margin: auto;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+
+  &__item--flex {
+    @include flex(flex-start, center, row, 1rem);
+    position: relative;
+    padding: 0 2rem;
+    flex-basis: 20%;
+
+    @include rwd(576) {
+      flex-basis: 300px;
+      justify-content: center;
+    }
+  }
+
+  &__line {
+    width: 40px;
+    height: 3px;
+    background: #fff;
+    opacity: 0.2;
+    position: absolute;
+    display: block;
+    content: "";
+  }
+
+  .line-1 {
+    top: 0;
+    left: 0;
+  }
+
+  .line-2 {
+    top: 0;
+    right: 0;
+  }
+
+  .line-3 {
+    bottom: 0;
+    left: 0;
+  }
+
+  .line-4 {
+    bottom: 0;
+    right: 0;
+  }
+
+  .line-5 {
+    top: 0;
+    left: 0;
+    height: 100%;
+    bottom: 0;
+    width: 3px;
+  }
+
+  .line-6 {
+    top: 0;
+    right: 0;
+    height: 100%;
+    bottom: 0;
+    width: 3px;
+  }
+
+  &__number {
+    @include text(78px, 700, $primary-color);
+    @include rwd(576) {
+      font-weight: 500;
+      font-size: 68px;
+    }
+  }
+}
+
+// ==========================================================================
+// ABOUT section
+// ==========================================================================
+.about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+    url("../../src/img/about/about-services.jpg");
+  background-size: cover;
+  border-radius: 1rem;
+  margin: 70 auto;
+  scroll-margin-top: 180px;
+
+  &__wrapper {
+    @include flex(space-between);
+    margin-top: 3rem;
+    padding: 0 4rem;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      row-gap: 3rem;
+    }
+  }
+
+  &__item {
+    flex-basis: 30%;
+    text-align: center;
+    @include rwd(1200) {
+      flex-basis: 100%;
+    }
+
+    svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+
+  &__name {
+    @include text(1rem, 700, $white-color, uppercase, center);
+    margin: 1rem 0;
+  }
+
+  &__desc {
+    @include text(14px, 300, $white-color, none, center);
+    width: 250px;
+    margin: auto;
+
+    @include rwd(1200) {
+      width: 300px;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+}
+
+// ==========================================================================
+// OFFER section
+// ==========================================================================
+.offer {
+  @include flex;
+  position: relative;
+
+  @include rwd(992) {
+    flex-direction: column;
+  }
+
+  &__item {
+    flex: 1;
+
+    img {
+      height: 100%;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+
+      @include rwd(992) {
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 0;
+        height: 400px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__item--bg {
+    @include flex(center, flex-start, column);
+    background: #222222;
+    padding: 3rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+    @include rwd(992) {
+      align-items: center;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 1rem;
+    }
+
+    @include rwd(400) {
+      padding: 48px 20px;
+    }
+  }
+
+  .section-header {
+    @include section-header(left);
+
+    @include rwd(992) {
+      text-align: center;
+    }
+
+    .section-subtitle {
+      @include rwd(992) {
+        font-size: 24px;
+        margin: auto;
+        max-width: 320px;
+        margin-bottom: 16px;
+      }
+
+      @include rwd(400) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__desc {
+    color: $white-color;
+    margin: 1.5rem 0 3rem;
+    font-size: 14px;
+    width: 420px;
+    line-height: 1.8;
+    font-weight: 300;
+
+    @include rwd(992) {
+      text-align: center;
+      margin: 1.5rem auto 3rem;
+      width: 280px;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+}

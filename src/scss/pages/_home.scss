@@ -1,0 +1,143 @@
+@use "../abstract/index" as *;
+
+.header {
+  height: 100svh;
+  position: relative;
+  display: flex;
+
+  &__bg {
+    flex: 1.5;
+
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+
+  &__imgs {
+    flex: 3;
+    display: flex;
+
+    @include rwd(1200) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    @include flex(flex-end, stretch, column);
+    padding-left: 60px;
+    background-size: cover;
+    height: 100%;
+  }
+
+  &__number {
+    font-family: "Noto Nastaliq Urdu", serif;
+
+    &::before {
+      display: block;
+      content: "";
+      height: 75px;
+      width: 100%;
+      border-left: 1px solid #fff;
+      margin-bottom: 1rem;
+    }
+
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+
+  &__service {
+    @include text(28px, 600, $white-color, capitalize);
+    max-width: 200px;
+    margin: 20px 0 70px;
+
+    @include rwd(1200) {
+      display: none;
+    }
+  }
+
+  &__item--one {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../src/img/home/toy-house.jpg");
+    background-position: center;
+
+    @include rwd(1200) {
+      background-position: bottom;
+    }
+  }
+
+  &__item--two {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../src/img/home/woman-standing.jpg");
+    background-position: center;
+  }
+
+  &__item--three {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("../../src/img/home/technician.jpg");
+    background-position: right;
+  }
+
+  &__text {
+    @include positioning(absolute, 50%, auto, auto, 200px, 700px);
+
+    @include rwd(1200) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+    }
+  }
+
+  &__heading {
+    @extend %header-heading;
+    text-align: left;
+    max-width: 650px;
+
+    @include rwd(1200) {
+      text-align: center;
+      margin: auto;
+    }
+
+    @include rwd(768) {
+      font-size: 28px;
+      width: 350px;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+
+  &__p {
+    @extend %header-paragraph;
+    max-width: 450px;
+    text-align: left;
+
+    @include rwd(1200) {
+      margin: 1rem auto 2rem;
+      text-align: center;
+      max-width: 320px;
+    }
+
+    @include rwd(400) {
+      width: 100%;
+    }
+  }
+
+  &__btns {
+    @include rwd(1200) {
+      @include flex(flex-start, center, column, 20px);
+    }
+
+    .btn-outline {
+      display: none;
+
+      @include rwd(1200) {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use "../abstract/index" as *;
+
+.mobile {
+  @include positioning(fixed, 0, auto, 0, 0, 65%);
+  @include flex(center, center, column, 2rem);
+  background-color: $secondary-color;
+  transform: translateX(-100%);
+  transition: 0.4s linear;
+  z-index: 999;
+  padding: 0 1rem;
+
+  &.active {
+    transform: translateX(0);
+  }
+
+  #close {
+    @include positioning(fixed, 30px, 20px, auto, auto);
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  &__list {
+    text-align: center;
+  }
+
+  &__link {
+    @include text(16px, 700, $white-color, uppercase);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  &__text {
+    @include text(14px, 400, $white-color, none, center);
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      font-size: 18px;
+    }
+  }
+}

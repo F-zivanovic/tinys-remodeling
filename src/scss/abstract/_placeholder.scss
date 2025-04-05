@@ -1,0 +1,15 @@
+@use './variables' as *;
+
+%header-heading{
+    font-size: 56px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white-color;
+}
+
+%header-paragraph{
+    font-size: 16px;
+    font-weight: 300;
+    color: $white-color;
+    margin: 40px 0 48px;
+}
